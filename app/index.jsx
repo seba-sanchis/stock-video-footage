@@ -1,10 +1,10 @@
-import { Image, ScrollView, Text, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 import { Redirect, router } from "expo-router";
+import { Image, ScrollView, Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import { images } from "../constants";
-import CustomButton from "../components/CustomButton";
+import { CustomButton } from "../components";
 import { useGlobalContext } from "../context/GlobalProvider";
 
 export default function App() {
