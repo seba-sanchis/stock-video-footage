@@ -11,11 +11,13 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 import { images } from "../../constants";
 import useAppwrite from "../../lib/useAppwrite";
-import { getAllPosts } from "../../lib/appwrite";
+import { getAllPosts, getLatestPosts } from "../../lib/appwrite";
 import { EmptyState, SearchInput, Trending, VideoCard } from "../../components";
 
 export default function Home() {
   const { data: posts, refetch } = useAppwrite(getAllPosts);
+
+  const { data: latestPosts } = useAppwrite(getLatestPosts);
 
   const [refreshing, setRefreshing] = useState(false);
 
@@ -59,7 +61,7 @@ export default function Home() {
                 Latest Videos
               </Text>
 
-              <Trending posts={[{ id: 1 }] ?? []} />
+              <Trending posts={latestPosts ?? []} />
             </View>
           </View>
         )}
